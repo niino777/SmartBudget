@@ -1,0 +1,9 @@
+// LAYOUT / HEADER
+// El contenedor centrado ya lo aporta .mm-container, aplicada en el <nav>
+// del HTML junto a .mm-navbar__inner.
+@use "../abstracts/placeholders";
+
+.mm-navbar__inner {
+  @extend %row-between;
+  height: 100%;
+}

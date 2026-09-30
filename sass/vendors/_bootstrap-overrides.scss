@@ -1,0 +1,21 @@
+// =============================================================================
+// VENDORS / BOOTSTRAP OVERRIDES
+// Ajustes puntuales para que el tema default (azul) de Bootstrap no se
+// filtre sobre la identidad violeta de MenteMoneda.
+// =============================================================================
+@use "../abstracts/variables" as v;
+
+a {
+  color: v.$color-brand-600;
+  &:hover { color: v.$color-brand-400; }
+}
+
+.navbar-toggler {
+  border: none;
+  &:focus { box-shadow: none; }
+}
+
+.form-control:focus {
+  border-color: v.$color-brand-400;
+  box-shadow: 0 0 0 3px rgba(v.$color-brand-300, 0.25);
+}

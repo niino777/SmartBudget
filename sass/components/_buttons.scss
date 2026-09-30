@@ -1,0 +1,61 @@
+// COMPONENTS / BUTTONS
+// Bloque BEM: .mm-btn  Modificadores: --primary / --ghost / --light / --sm
+@use "../abstracts/variables" as v;
+
+.mm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+  border: 2px solid transparent;
+  border-radius: v.$radius-pill;
+  padding: 0.85rem 1.65rem;
+  font-weight: v.$fw-bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform v.$transition-fast,
+    box-shadow v.$transition-fast,
+    background v.$transition-fast,
+    color v.$transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(v.$color-brand-300, 0.55);
+    outline-offset: 2px;
+  }
+
+  &--primary {
+    background: v.$gradient-brand;
+    color: v.$color-white;
+    box-shadow: v.$shadow-md;
+  }
+
+  &--ghost {
+    background: transparent;
+    border-color: v.$color-brand-600;
+    color: v.$color-brand-600;
+
+    &:hover {
+      background: rgba(v.$color-brand-600, 0.06);
+    }
+  }
+
+  &--light {
+    background: v.$color-white;
+    color: v.$color-brand-600;
+  }
+
+  &--on-dark {
+    background: rgba(v.$color-white, 0.15);
+    color: v.$color-white;
+    border-color: rgba(v.$color-white, 0.4);
+  }
+
+  &--block {
+    width: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+// =============================================================================
+// ABSTRACTS / MIXINS
+// Un único mixin para los media queries (mobile-first).
+// =============================================================================
+@use "variables" as v;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == md {
+    @media (min-width: v.$bp-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: v.$bp-lg) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+// COMPONENTS / CARD
+// Bloque BEM: .mm-card — LA tarjeta de todo el sitio. Se reutiliza tal cual
+// en: el "peek" de saldo del hero, las 4 características, el panel de vista
+// previa, los 3 testimonios y el banner de cuenta final.
+@use "../abstracts/variables" as v;
+
+.mm-card {
+  background: v.$color-white;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-lg;
+  padding: v.$space-5;
+  box-shadow: v.$shadow-sm;
+
+  // Variante con degradé de marca (hero, banner Cuenta final)
+  &--gradient {
+    background: v.$gradient-brand;
+    border: none;
+    color: v.$color-white;
+    box-shadow: v.$shadow-md;
+  }
+
+  // Se levanta un poco al pasar el mouse (características, testimonios)
+  &--hover {
+    transition:
+      transform v.$transition-fast,
+      box-shadow v.$transition-fast;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: v.$shadow-md;
+    }
+  }
+
+  &--center {
+    text-align: center;
+  }
+}

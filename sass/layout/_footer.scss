@@ -1,0 +1,68 @@
+// LAYOUT / FOOTER
+// Una sola fila (logo + links + copyright)
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+.mm-footer {
+  background: #1c1225;
+  color: rgba(v.$color-white, 0.72);
+  padding-top: v.$space-6;
+  padding-bottom: v.$space-6;
+
+  &__inner {
+    @extend %col;
+    align-items: center;
+    gap: v.$space-4;
+    text-align: center;
+
+    @include m.respond(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  &__brand {
+    @extend %row;
+    gap: v.$space-2;
+  }
+
+  &__wordmark {
+    color: v.$color-white;
+    font-weight: v.$fw-black;
+  }
+
+  &__links {
+    @extend %row;
+    gap: v.$space-5;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__link {
+    color: rgba(v.$color-white, 0.72);
+    font-size: 0.9rem;
+
+    &:hover {
+      color: v.$color-white;
+    }
+  }
+
+  // Copyright, siempre centrado (aparte de la fila logo + links).
+  &__copyright {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: v.$space-5;
+    margin-bottom: 0;
+  }
+
+  // Crédito del prototipo, siempre pegado a la esquina inferior derecha.
+  &__credit {
+    text-align: right;
+    font-size: 0.78rem;
+    color: rgba(v.$color-white, 0.5);
+    margin-top: v.$space-3;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,36 @@
+// COMPONENTS / ROW
+// Bloque BEM: .mm-row — fila con un ícono + texto a la izquierda y un
+// valor a la derecha.
+@use "../abstracts/variables" as v;
+@use "../abstracts/placeholders";
+
+.mm-row {
+  @extend %row-between;
+  background: v.$color-surface-alt;
+  border-radius: v.$radius-md;
+  padding: v.$space-3 v.$space-4;
+
+  &__left {
+    @extend %row;
+    gap: v.$space-3;
+  }
+
+  &__name {
+    font-size: 0.9rem;
+    font-weight: v.$fw-semibold;
+    margin: 0;
+  }
+
+  &__date {
+    font-size: 0.75rem;
+    color: v.$color-text-muted;
+    margin: 0;
+  }
+
+  &--income &__value {
+    color: v.$color-success;
+  }
+  &--expense &__value {
+    color: v.$color-danger;
+  }
+}

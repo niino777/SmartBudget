@@ -1,0 +1,7 @@
+// THEMES / DEFAULT
+@use "../abstracts/variables" as v;
+
+::selection {
+  background: v.$color-brand-300;
+  color: v.$color-white;
+}

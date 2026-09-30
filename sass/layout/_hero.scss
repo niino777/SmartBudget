@@ -1,0 +1,67 @@
+// LAYOUT / HERO
+// El contenedor centrado ya lo aporta .mm-container (aplicada en el HTML junto a .mm-hero__inner).
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+.mm-hero {
+  padding-top: calc(#{v.$header-height} + #{v.$space-7});
+  padding-bottom: v.$space-7;
+
+  &__inner {
+    display: grid;
+    gap: v.$space-6;
+    align-items: center;
+    grid-template-columns: 1fr;
+
+    @include m.respond(lg) {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: v.$space-8;
+    }
+  }
+
+  &__title {
+    margin-bottom: v.$space-4;
+  }
+  &__text {
+    max-width: 46ch;
+    margin-bottom: v.$space-6;
+  }
+
+  &__actions {
+    @extend %row;
+    gap: v.$space-4;
+    flex-wrap: wrap;
+  }
+}
+
+// Tarjeta "peek" de saldo (reutiliza .mm-card --gradient)
+.mm-hero-peek {
+  &__label {
+    opacity: 0.85;
+    font-size: 0.85rem;
+    margin: 0 0 v.$space-1;
+  }
+  &__amount {
+    font-size: 2rem;
+    margin: 0 0 v.$space-5;
+  }
+
+  &__row {
+    @extend %row-between;
+    padding-top: v.$space-4;
+    border-top: 1px solid rgba(v.$color-white, 0.25);
+  }
+
+  &__col {
+    @extend %col;
+    gap: 0.2rem;
+  }
+  &__col-label {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+  &__col-value {
+    font-weight: v.$fw-bold;
+  }
+}

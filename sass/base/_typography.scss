@@ -1,0 +1,48 @@
+// Tipografía
+@use "../abstracts/variables" as v;
+
+body {
+  font-family: v.$font-primary;
+  color: v.$color-text;
+  background-color: v.$color-surface;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: v.$font-primary;
+  font-weight: v.$fw-black;
+  color: v.$color-brand-600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 1.5rem + 2.2vw, 3.1rem);
+}
+h2 {
+  font-size: clamp(1.6rem, 1.35rem + 1.2vw, 2.2rem);
+}
+h3 {
+  font-size: 1.125rem;
+  font-weight: v.$fw-bold;
+}
+
+p {
+  margin: 0;
+}
+
+// Cifras monetarias: tipografía monoespaciada con `tabular-nums` para que los montos queden siempre alineados.
+.mm-amount {
+  font-family: v.$font-mono;
+  font-variant-numeric: tabular-nums;
+  font-weight: v.$fw-bold;
+}
+
+.mm-lead {
+  font-size: 1.1rem;
+  color: v.$color-text-muted;
+}

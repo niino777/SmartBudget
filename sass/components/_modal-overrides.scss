@@ -1,0 +1,29 @@
+// COMPONENTS / MODAL OVERRIDES
+@use "../abstracts/variables" as v;
+
+.modal-content {
+  border: none;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+}
+
+.mm-modal-header {
+  background: v.$gradient-brand;
+  color: v.$color-white;
+  padding: v.$space-5;
+  border: none;
+
+  .modal-title {
+    font-weight: v.$fw-bold;
+  }
+
+  .close {
+    color: v.$color-white;
+    opacity: 0.85;
+    text-shadow: none;
+  }
+}
+
+.modal-body {
+  padding: v.$space-5;
+}

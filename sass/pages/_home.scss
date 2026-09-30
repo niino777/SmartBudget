@@ -1,0 +1,24 @@
+// PAGES / HOME
+// Reglas puntuales de esta landing que no ameritan un componente propio.
+@use "../abstracts/variables" as v;
+
+#inicio,
+#caracteristicas,
+#vista-previa,
+#galeria,
+#testimonios {
+  scroll-margin-top: v.$header-height;
+}
+
+.mm-section--alt {
+  background: v.$color-white;
+}
+
+#vista-previa {
+  padding-top: v.$space-4;
+  padding-bottom: v.$space-4;
+}
+
+#galeria {
+  padding-top: v.$space-4;
+}

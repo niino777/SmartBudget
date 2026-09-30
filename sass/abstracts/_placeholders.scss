@@ -1,0 +1,23 @@
+// ABSTRACTS / PLACEHOLDERS
+
+%row {
+  display: flex;
+  align-items: center;
+}
+
+%row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%col {
+  display: flex;
+  flex-direction: column;
+}
+
+%circle {
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}

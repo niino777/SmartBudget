@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MenteMoneda · Smart Budget</title>
+    <meta
+      name="description"
+      content="MenteMoneda te ayuda a registrar tus gastos y organizar tus finanzas desde un panel simple y claro."
+    />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700;900&family=IBM+Plex+Mono:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 4.6  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Hoja de estilos propia, compilada desde /sass con estructura 7-1 -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Barra de navegación -->
+    <header class="mm-navbar" id="mmNavbar">
+      <nav
+        class="navbar navbar-expand-md mm-navbar__inner mm-container"
+        aria-label="Navegación principal"
+      >
+        <a class="navbar-brand mm-navbar__brand" href="#inicio">
+          <img
+            src="img/logo-icon.png"
+            alt=""
+            class="mm-navbar__logo"
+            width="32"
+            height="32"
+          />
+          <span class="mm-navbar__wordmark">MenteMoneda</span>
+        </a>
+
+        <!-- Botón hamburguesa para el navbar en dispositivos móviles -->
+        <button
+          class="navbar-toggler mm-navbar__toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#mmNavLinks"
+          aria-controls="mmNavLinks"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+
+        <div class="collapse navbar-collapse mm-navbar__menu" id="mmNavLinks">
+          <ul class="navbar-nav ml-auto align-items-md-center">
+            <li class="nav-item">
+              <a class="nav-link mm-navbar__link" href="#caracteristicas"
+                >Características</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mm-navbar__link" href="#vista-previa"
+                >Vista previa</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mm-navbar__link" href="#galeria">Galería</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mm-navbar__link" href="#testimonios"
+                >Opiniones</a
+              >
+            </li>
+
+            <!-- Dropdown de cuenta -->
+            <li class="nav-item dropdown mt-2 mt-md-0 ml-md-2">
+              <a
+                class="nav-link mm-navbar__link mm-navbar__link--account dropdown-toggle"
+                href="#"
+                id="mmAccountMenu"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle mr-1"></i> Cuenta
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="mmAccountMenu"
+              >
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  data-toggle="modal"
+                  data-target="#modalIniciarSesion"
+                  >Iniciar sesión</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  data-toggle="modal"
+                  data-target="#modalComenzar"
+                  >Crear cuenta</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="mm-hero mm-container">
+        <div class="mm-hero__inner">
+          <div>
+            <h1 class="mm-hero__title">
+              Tu dinero en orden,<br />tu mente tranquila
+            </h1>
+            <p class="mm-hero__text mm-lead">
+              Registra tus gastos, organiza tus finanzas y entiende en segundos
+              en qué se te va el dinero, sin planillas.
+            </p>
+            <div class="mm-hero__actions">
+              <button
+                type="button"
+                class="btn mm-btn mm-btn--primary"
+                data-toggle="modal"
+                data-target="#modalComenzar"
+              >
+                Comenzar gratis
+              </button>
+              <a href="#vista-previa" class="btn mm-btn mm-btn--ghost"
+                >Ver el panel</a
+              >
+            </div>
+          </div>
+
+          <!-- "Peek" de saldo -->
+          <div class="card mm-card mm-card--gradient mm-hero-peek">
+            <p class="mm-hero-peek__label">Saldo total</p>
+            <p class="mm-hero-peek__amount mm-amount">$2.500.000</p>
+            <div class="mm-hero-peek__row">
+              <div class="mm-hero-peek__col">
+                <span class="mm-hero-peek__col-label">Ingresos</span>
+                <span class="mm-hero-peek__col-value mm-amount"
+                  >$1.800.000</span
+                >
+              </div>
+              <div class="mm-hero-peek__col">
+                <span class="mm-hero-peek__col-label">Gastos</span>
+                <span class="mm-hero-peek__col-value mm-amount">$340.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Div de características -->
+      <section class="mm-section mm-container" id="caracteristicas">
+        <div class="mm-section__head">
+          <h2>Todo tu dinero, en un panel</h2>
+          <p class="mm-lead">
+            Cuatro áreas simples que cubren lo esencial para mantener tus
+            finanzas bajo control.
+          </p>
+        </div>
+
+        <div class="mm-features__grid">
+          <article class="card mm-card mm-card--hover mm-feature">
+            <span class="mm-avatar mm-avatar--md mm-avatar--brand"
+              ><i class="bi bi-house-heart"></i
+            ></span>
+            <h3 class="mm-feature__title">Panel de inicio</h3>
+            <p class="mm-feature__text">
+              Tu saldo, ingresos y gastos del mes, de un vistazo.
+            </p>
+          </article>
+
+          <article class="card mm-card mm-card--hover mm-feature">
+            <span class="mm-avatar mm-avatar--md mm-avatar--brand"
+              ><i class="bi bi-bar-chart-line"></i
+            ></span>
+            <h3 class="mm-feature__title">Estadísticas claras</h3>
+            <p class="mm-feature__text">
+              Compara tus gastos por semana o mes y descubre patrones de gasto a
+              tiempo.
+            </p>
+          </article>
+
+          <article class="card mm-card mm-card--hover mm-feature">
+            <span class="mm-avatar mm-avatar--md mm-avatar--brand"
+              ><i class="bi bi-wallet2"></i
+            ></span>
+            <h3 class="mm-feature__title">Billetera y facturas</h3>
+            <p class="mm-feature__text">
+              Registra transacciones y agenda tus próximos pagos.
+            </p>
+          </article>
+
+          <article class="card mm-card mm-card--hover mm-feature">
+            <span class="mm-avatar mm-avatar--md mm-avatar--brand"
+              ><i class="bi bi-shield-check"></i
+            ></span>
+            <h3 class="mm-feature__title">Perfil y seguridad</h3>
+            <p class="mm-feature__text">
+              Tus datos financieros protegidos, con control total de tu cuenta.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Vista previa — modal interactivo de "Agregar gasto" -->
+      <section class="mm-section mm-section--alt" id="vista-previa">
+        <div class="mm-container">
+          <div class="mm-section__head">
+            <h2>Así se ve tu dinero organizado</h2>
+            <p class="mm-lead">
+              Un panel con tu saldo y tu historial de transacciones. Pruébalo
+              agregando un gasto o ingreso.
+            </p>
+          </div>
+
+          <div class="card mm-card mm-preview-panel">
+            <div class="mm-preview-panel__top">
+              <div>
+                <p class="mm-preview-panel__label">Saldo total</p>
+                <p class="mm-preview-panel__amount mm-amount" id="mmSaldoTotal">
+                  $2.500.000
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn mm-btn mm-btn--primary"
+                data-toggle="modal"
+                data-target="#modalAgregarGasto"
+              >
+                <i class="bi bi-plus-circle"></i> Agregar gasto
+              </button>
+            </div>
+
+            <div class="mm-preview-panel__list" id="mmTransactionList">
+              <div class="mm-row mm-row--income">
+                <div class="mm-row__left">
+                  <span class="mm-avatar mm-avatar--sm mm-avatar--income"
+                    ><i class="bi bi-arrow-down-left"></i
+                  ></span>
+                  <div>
+                    <p class="mm-row__name">Sueldo</p>
+                    <p class="mm-row__date">Hoy</p>
+                  </div>
+                </div>
+                <span class="mm-row__value mm-amount">+$890.000</span>
+              </div>
+
+              <div class="mm-row mm-row--expense">
+                <div class="mm-row__left">
+                  <span class="mm-avatar mm-avatar--sm mm-avatar--expense"
+                    ><i class="bi bi-bag"></i
+                  ></span>
+                  <div>
+                    <p class="mm-row__name">Supermercado</p>
+                    <p class="mm-row__date">Ayer</p>
+                  </div>
+                </div>
+                <span class="mm-row__value mm-amount">-$15.000</span>
+              </div>
+
+              <div class="mm-row mm-row--expense">
+                <div class="mm-row__left">
+                  <span class="mm-avatar mm-avatar--sm mm-avatar--expense"
+                    ><i class="bi bi-arrow-left-right"></i
+                  ></span>
+                  <div>
+                    <p class="mm-row__name">Transferencia</p>
+                    <p class="mm-row__date">30 ene, 2025</p>
+                  </div>
+                </div>
+                <span class="mm-row__value mm-amount">-$78.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERÍA — carrusel de Bootstrap con las pantallas de la app, dentro de una .mm-card -->
+      <section class="mm-section mm-section--alt" id="galeria">
+        <div class="mm-container">
+          <div class="mm-section__head">
+            <h2>Conoce la app por dentro</h2>
+            <p class="mm-lead">
+              Un recorrido por las pantallas principales de MenteMoneda.
+            </p>
+          </div>
+
+          <div class="card mm-card mm-gallery">
+            <div
+              id="mmGallery"
+              class="carousel slide"
+              data-interval="false"
+              aria-label="Galería de pantallas de la app"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="mm-gallery__slide">
+                    <figure class="mm-gallery__figure">
+                      <img
+                        class="mm-gallery__img"
+                        src="img/pantallas/inicio.png"
+                        width="430"
+                        height="932"
+                        loading="lazy"
+                        alt="Pantalla Inicio de la app MenteMoneda"
+                        onerror="this.classList.add('is-missing')"
+                      />
+                    </figure>
+                    <div class="mm-gallery__caption">
+                      <h3>Inicio</h3>
+                      <p class="mm-lead">
+                        Tu saldo, ingresos y gastos del mes de un vistazo, con
+                        el historial de tus últimas transacciones.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="mm-gallery__slide">
+                    <figure class="mm-gallery__figure">
+                      <img
+                        class="mm-gallery__img"
+                        src="img/pantallas/estadisticas.png"
+                        width="430"
+                        height="932"
+                        loading="lazy"
+                        alt="Pantalla Estadísticas de la app MenteMoneda"
+                        onerror="this.classList.add('is-missing')"
+                      />
+                    </figure>
+                    <div class="mm-gallery__caption">
+                      <h3>Estadísticas</h3>
+                      <p class="mm-lead">
+                        Analiza tus movimientos por día, semana o año y toma el
+                        control de tus gastos al instante
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="mm-gallery__slide">
+                    <figure class="mm-gallery__figure">
+                      <img
+                        class="mm-gallery__img"
+                        src="img/pantallas/billetera.png"
+                        width="430"
+                        height="932"
+                        loading="lazy"
+                        alt="Pantalla Billetera de la app MenteMoneda"
+                        onerror="this.classList.add('is-missing')"
+                      />
+                    </figure>
+                    <div class="mm-gallery__caption">
+                      <h3>Billetera</h3>
+                      <p class="mm-lead">
+                        Revisa tus transacciones y agenda tus próximas facturas
+                        para no olvidar ningún pago.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="mm-gallery__slide">
+                    <figure class="mm-gallery__figure">
+                      <img
+                        class="mm-gallery__img"
+                        src="img/pantallas/agregar-gasto.png"
+                        width="430"
+                        height="932"
+                        loading="lazy"
+                        alt="Pantalla Agregar gasto de la app MenteMoneda"
+                        onerror="this.classList.add('is-missing')"
+                      />
+                    </figure>
+                    <div class="mm-gallery__caption">
+                      <h3>Agregar gasto</h3>
+                      <p class="mm-lead">
+                        Registra un gasto en segundos: define el nombre, el
+                        monto y la fecha, y mantén tus facturas siempre al día.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="mm-gallery__slide">
+                    <figure class="mm-gallery__figure">
+                      <img
+                        class="mm-gallery__img"
+                        src="img/pantallas/perfil.png"
+                        width="430"
+                        height="932"
+                        loading="lazy"
+                        alt="Pantalla Perfil de la app MenteMoneda"
+                        onerror="this.classList.add('is-missing')"
+                      />
+                    </figure>
+                    <div class="mm-gallery__caption">
+                      <h3>Perfil</h3>
+                      <p class="mm-lead">
+                        Administra tu cuenta, tu seguridad y tu privacidad desde
+                        un solo lugar.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mm-gallery__controls">
+                <button
+                  type="button"
+                  class="mm-avatar mm-avatar--md mm-avatar--brand mm-gallery__arrow"
+                  data-target="#mmGallery"
+                  data-slide="prev"
+                  aria-label="Pantalla anterior"
+                >
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="carousel-indicators mm-gallery__dots">
+                  <button
+                    type="button"
+                    class="mm-gallery__dot active"
+                    data-target="#mmGallery"
+                    data-slide-to="0"
+                    aria-label="Ir a la pantalla 1: Inicio"
+                  ></button>
+                  <button
+                    type="button"
+                    class="mm-gallery__dot"
+                    data-target="#mmGallery"
+                    data-slide-to="1"
+                    aria-label="Ir a la pantalla 2: Estadísticas"
+                  ></button>
+                  <button
+                    type="button"
+                    class="mm-gallery__dot"
+                    data-target="#mmGallery"
+                    data-slide-to="2"
+                    aria-label="Ir a la pantalla 3: Billetera"
+                  ></button>
+                  <button
+                    type="button"
+                    class="mm-gallery__dot"
+                    data-target="#mmGallery"
+                    data-slide-to="3"
+                    aria-label="Ir a la pantalla 4: Agregar gasto"
+                  ></button>
+                  <button
+                    type="button"
+                    class="mm-gallery__dot"
+                    data-target="#mmGallery"
+                    data-slide-to="4"
+                    aria-label="Ir a la pantalla 5: Perfil"
+                  ></button>
+                </div>
+                <button
+                  type="button"
+                  class="mm-avatar mm-avatar--md mm-avatar--brand mm-gallery__arrow"
+                  data-target="#mmGallery"
+                  data-slide="next"
+                  aria-label="Pantalla siguiente"
+                >
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIOS — 3 tarjetas .mm-card del mismo componente -->
+      <section class="mm-section mm-testimonials" id="testimonios">
+        <div class="mm-container">
+          <div class="mm-section__head">
+            <h2>Personas que ya ordenaron su dinero</h2>
+          </div>
+
+          <div class="mm-testimonials__grid">
+            <article class="card mm-card mm-testimonial">
+              <p class="mm-testimonial__quote">
+                "Dejé de perder la cuenta de mis gastos hormiga en una semana."
+              </p>
+              <div class="mm-testimonial__author">
+                <span class="mm-avatar mm-avatar--md mm-avatar--gradient"
+                  >MJ</span
+                >
+                <span>
+                  <span class="mm-testimonial__name">María José</span>
+                  <span class="mm-testimonial__role">Diseñadora freelance</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="card mm-card mm-testimonial">
+              <p class="mm-testimonial__quote">
+                "El panel me mostró que gastaba el doble en delivery de lo que
+                pensaba."
+              </p>
+              <div class="mm-testimonial__author">
+                <span class="mm-avatar mm-avatar--md mm-avatar--gradient"
+                  >RT</span
+                >
+                <span>
+                  <span class="mm-testimonial__name">Rodrigo Torres</span>
+                  <span class="mm-testimonial__role">Estudiante</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="card mm-card mm-testimonial">
+              <p class="mm-testimonial__quote">
+                "Agendo mis facturas del mes y no se me pasa una fecha de pago."
+              </p>
+              <div class="mm-testimonial__author">
+                <span class="mm-avatar mm-avatar--md mm-avatar--gradient"
+                  >CF</span
+                >
+                <span>
+                  <span class="mm-testimonial__name">Camila Fuentes</span>
+                  <span class="mm-testimonial__role">Trabajadora social</span>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mm-section mm-container">
+        <div class="card mm-card mm-card--gradient mm-card--center mm-cta">
+          <h2 class="mm-cta__title">
+            Empieza a tomar el control de tu dinero hoy
+          </h2>
+          <p class="mm-cta__text">
+            Crear tu cuenta toma menos de dos minutos y es gratis para siempre.
+          </p>
+          <div class="mm-cta__actions">
+            <button
+              type="button"
+              class="btn mm-btn mm-btn--light"
+              data-toggle="modal"
+              data-target="#modalComenzar"
+            >
+              Crear cuenta gratis
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===========================================================
+       FOOTER — una sola fila
+       =========================================================== -->
+    <footer class="mm-footer">
+      <div class="mm-container mm-footer__inner">
+        <div class="mm-footer__brand">
+          <img src="img/logo-icon.png" alt="" width="26" height="26" />
+          <span class="mm-footer__wordmark">MenteMoneda</span>
+        </div>
+        <nav class="mm-footer__links" aria-label="Enlaces del pie de página">
+          <a href="#caracteristicas" class="mm-footer__link">Características</a>
+          <a href="#vista-previa" class="mm-footer__link">Vista previa</a>
+          <a href="#testimonios" class="mm-footer__link">Opiniones</a>
+        </nav>
+      </div>
+      <p class="mm-container mm-footer__copyright">
+        © <span id="mmYear">2026</span> MenteMoneda
+      </p>
+      <p class="mm-container mm-footer__credit">
+        Prototipo realizado por Felipe Muñoz para MenteMoneda <span>&reg;</span>
+      </p>
+    </footer>
+
+    <!-- Modal: Iniciar sesión -->
+    <div
+      class="modal fade"
+      id="modalIniciarSesion"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalIniciarSesionLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header mm-modal-header">
+            <h2 class="modal-title" id="modalIniciarSesionLabel">
+              Inicia sesión
+            </h2>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Cerrar"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form novalidate id="mmLoginForm">
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmLoginEmail"
+                  >Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  class="form-control mm-field__input"
+                  id="mmLoginEmail"
+                  required
+                />
+              </div>
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmLoginPassword"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  class="form-control mm-field__input"
+                  id="mmLoginPassword"
+                  minlength="6"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn mm-btn mm-btn--primary mm-btn--block"
+              >
+                Iniciar sesión
+              </button>
+            </form>
+            <p class="mm-lead d-none mt-3" id="mmLoginSuccess">
+              ✅ Sesión iniciada (demostración, no se envían datos).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Crear cuenta -->
+    <div
+      class="modal fade"
+      id="modalComenzar"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalComenzarLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header mm-modal-header">
+            <h2 class="modal-title" id="modalComenzarLabel">
+              Crea tu cuenta gratis
+            </h2>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Cerrar"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form novalidate id="mmSignupForm">
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmNombre">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control mm-field__input"
+                  id="mmNombre"
+                  required
+                />
+              </div>
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmEmail"
+                  >Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  class="form-control mm-field__input"
+                  id="mmEmail"
+                  required
+                />
+              </div>
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmPassword"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  class="form-control mm-field__input"
+                  id="mmPassword"
+                  minlength="6"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn mm-btn mm-btn--primary mm-btn--block"
+              >
+                Comenzar
+              </button>
+            </form>
+            <p class="mm-lead d-none mt-3" id="mmSignupSuccess">
+              ✅ Cuenta creada (demostración, no se envían datos).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Agregar Gasto -->
+    <div
+      class="modal fade"
+      id="modalAgregarGasto"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modalAgregarGastoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header mm-modal-header">
+            <h2 class="modal-title" id="modalAgregarGastoLabel">
+              Agregar gasto
+            </h2>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Cerrar"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form novalidate id="mmGastoForm">
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmGastoNombre"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  class="form-control mm-field__input"
+                  id="mmGastoNombre"
+                  placeholder="Ej: Supermercado"
+                  required
+                />
+              </div>
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmGastoMonto"
+                  >Monto (CLP)</label
+                >
+                <input
+                  type="number"
+                  class="form-control mm-field__input"
+                  id="mmGastoMonto"
+                  placeholder="7990"
+                  min="1"
+                  required
+                />
+              </div>
+              <div class="mm-field">
+                <label class="mm-field__label" for="mmGastoTipo">Tipo</label>
+                <select class="form-control mm-field__select" id="mmGastoTipo">
+                  <option value="expense" selected>Gasto</option>
+                  <option value="income">Ingreso</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                class="btn mm-btn mm-btn--primary mm-btn--block"
+              >
+                Guardar gasto
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

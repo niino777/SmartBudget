@@ -1,0 +1,31 @@
+// MAIN.SCSS
+// Orden: abstracts -> vendors -> base -> themes -> components -> layout -> pages
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+@use "vendors/bootstrap-overrides";
+
+@use "base/reset";
+@use "base/typography";
+@use "base/utilities";
+
+@use "themes/default";
+
+@use "components/buttons";
+@use "components/card";
+@use "components/avatar";
+@use "components/row";
+@use "components/navbar";
+@use "components/forms";
+@use "components/modal-overrides";
+
+@use "layout/header";
+@use "layout/hero";
+@use "layout/features";
+@use "layout/preview";
+@use "layout/gallery";
+@use "layout/testimonials";
+@use "layout/cta";
+@use "layout/footer";
+
+@use "pages/home";

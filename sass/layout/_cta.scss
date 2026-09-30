@@ -1,0 +1,23 @@
+// LAYOUT / CTA
+// El banner final también es una .mm-card --gradient --center reutilizada.
+@use "../abstracts/variables" as v;
+@use "../abstracts/placeholders";
+
+.mm-cta {
+  &__title {
+    color: v.$color-white;
+    margin-bottom: v.$space-3;
+  }
+  &__text {
+    max-width: 50ch;
+    margin: 0 auto v.$space-5;
+    opacity: 0.9;
+  }
+
+  &__actions {
+    @extend %row;
+    justify-content: center;
+    gap: v.$space-4;
+    flex-wrap: wrap;
+  }
+}

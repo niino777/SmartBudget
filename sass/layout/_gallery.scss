@@ -1,0 +1,107 @@
+// LAYOUT / GALLERY
+// Carrusel de Bootstrap (.carousel) con las pantallas de la app. El JS de Bootstrap sigue manejando el cambio de slide.
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+.mm-gallery {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+
+  // Cada slide: imagen + texto 
+  &__slide {
+    display: grid;
+    gap: v.$space-5;
+    align-items: center;
+    text-align: center;
+
+    @include m.respond(md) {
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: v.$space-7;
+      text-align: left;
+    }
+  }
+
+  &__figure {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img {
+    width: auto;
+    height: auto;
+    max-height: 440px;
+    border-radius: 28px;
+    border: 1px solid v.$color-border;
+    box-shadow: v.$shadow-md;
+
+    @include m.respond(md) {
+      max-height: 520px;
+    }
+
+    // Icono de imagen rota que indica que la imagen no se pudo cargar (se muestra en lugar de la imagen)
+    &.is-missing {
+      width: 240px;
+      min-height: 440px;
+      padding: v.$space-5;
+      background: v.$color-brand-100;
+      border: 2px dashed v.$color-brand-300;
+      color: v.$color-brand-600;
+      text-align: center;
+      box-shadow: none;
+    }
+  }
+
+  &__caption h3 {
+    margin-bottom: v.$space-2;
+  }
+
+  // Controles: flecha · puntos · flecha
+  &__controls {
+    @extend %row;
+    justify-content: center;
+    gap: v.$space-4;
+    margin-top: v.$space-5;
+  }
+
+  &__arrow {
+    border: 0;
+    cursor: pointer;
+    transition:
+      background v.$transition-fast,
+      color v.$transition-fast;
+
+    &:hover {
+      background: v.$color-brand-600;
+      color: v.$color-white;
+    }
+  }
+
+  // .carousel-indicators es absoluto y blanco: se deja en flujo normal
+  &__dots {
+    position: static;
+    margin: 0;
+    padding: 0;
+    gap: v.$space-2;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: v.$radius-pill;
+    background: v.$color-border;
+    cursor: pointer;
+    transition:
+      width v.$transition-fast,
+      background v.$transition-fast;
+
+    &.active {
+      width: 26px;
+      background: v.$color-brand-600;
+    }
+  }
+}

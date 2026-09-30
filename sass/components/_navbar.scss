@@ -1,0 +1,109 @@
+// COMPONENTS / NAVBAR
+// Bloque BEM: .mm-navbar — construido sobre .navbar de Bootstrap 4.
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+.mm-navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1030;
+  height: v.$header-height;
+  background: rgba(v.$color-white, 0.9);
+  border-bottom: 1px solid transparent;
+  transition:
+    box-shadow v.$transition-fast,
+    border-color v.$transition-fast;
+
+  &.is-scrolled {
+    box-shadow: v.$shadow-sm;
+    border-bottom-color: v.$color-border;
+    background: v.$color-white;
+  }
+
+  &__brand {
+    @extend %row;
+    gap: v.$space-2;
+  }
+
+  &__logo {
+    height: 32px;
+    width: auto;
+  }
+
+  &__wordmark {
+    font-weight: v.$fw-black;
+    color: v.$color-brand-600;
+    font-size: 1.1rem;
+  }
+
+  &__link {
+    font-weight: v.$fw-semibold;
+    color: v.$color-text;
+    padding: 0.5rem 1rem !important;
+    border-radius: v.$radius-sm;
+
+    &:hover {
+      color: v.$color-brand-600;
+      background: v.$color-brand-100;
+    }
+  }
+
+  // Botón de cuenta destacado en morado
+  &__link--account {
+    background: v.$gradient-brand;
+    color: v.$color-white;
+    border-radius: v.$radius-pill;
+    padding: 0.5rem 1.1rem !important;
+    text-align: center;
+
+    &:hover {
+      color: v.$color-white;
+      background: v.$gradient-brand;
+      opacity: 0.92;
+    }
+  }
+
+  // ---- Botón hamburguesa (solo visible en pantallas moviles)
+  &__toggler {
+    color: v.$color-brand-600;
+    font-size: 1.9rem;
+    line-height: 1;
+    padding: 0.2rem 0.5rem;
+    border-radius: v.$radius-sm;
+
+    &:hover {
+      background: v.$color-brand-100;
+    }
+  }
+
+  // ---- Menú: panel desplegable en móvil, fila normal en escritorio
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: v.$color-white;
+    box-shadow: v.$shadow-md;
+    border-radius: 0 0 v.$radius-lg v.$radius-lg;
+    padding: v.$space-3 v.$space-5 v.$space-5;
+
+    .navbar-nav {
+      gap: v.$space-1;
+    }
+
+    @include m.respond(md) {
+      position: static;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+
+      .navbar-nav {
+        gap: 0;
+      }
+    }
+  }
+}

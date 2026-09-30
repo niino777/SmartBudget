@@ -1,0 +1,65 @@
+// ABSTRACTS / VARIABLES
+// Paleta y medidas tomadas del prototipo de Figma "MenteMoneda – Smart Budget".
+
+// ---- Color: marca -----------------------------------------------------------
+$color-brand-700: #4a1a66;
+$color-brand-600: #6d3a7c; // morado principal
+$color-brand-400: #9a5fb0;
+$color-brand-300: #c669e2; // morado claro (segundo color del degradé)
+$color-brand-100: #e9dbff; // fondo suave / chip activo
+
+$color-success: #2c7d52; // ingresos
+$color-danger: #cb4f60; // gastos
+
+// ---- Color: neutros -----------------------------------------------------
+$color-white: #ffffff;
+$color-surface: #faf8fc;
+$color-surface-alt: #f1f1f1;
+$color-border: #e6e1ea;
+$color-text: #241833;
+$color-text-muted: #8c8a8a;
+
+$gradient-brand: linear-gradient(
+  135deg,
+  $color-brand-600 0%,
+  $color-brand-300 100%
+);
+
+// ---- Tipografía -----------------------------------------------------------
+$font-primary: "Geologica", "Segoe UI", sans-serif;
+$font-mono: "IBM Plex Mono", "Courier New", monospace; // cifras monetarias
+
+$fw-regular: 400;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-black: 900;
+
+// ---- Espaciado (escala base 4px) -----------------------------------------
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.5rem;
+$space-6: 2rem;
+$space-7: 3rem;
+$space-8: 4rem;
+
+// ---- Bordes y sombras ---------------------------------------------------
+$radius-sm: 10px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-pill: 100px;
+
+$shadow-sm: 0 4px 12px rgba($color-brand-600, 0.08);
+$shadow-md: 0 12px 32px rgba($color-brand-600, 0.14);
+
+// ---- Layout ---------------------------------------------------------------
+$container-max: 1180px;
+$header-height: 72px;
+
+// ---- Breakpoints (mobile-first) -------------------------------------------
+$bp-md: 768px;
+$bp-lg: 992px;
+
+// ---- Transiciones -----------------------------------------------------------
+$transition-fast: 0.18s ease;

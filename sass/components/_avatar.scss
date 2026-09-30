@@ -1,0 +1,45 @@
+// COMPONENTS / AVATAR
+// Bloque BEM: .mm-avatar — círculo reutilizado para el ícono de cada característica, la inicial de cada testimonio, el ícono de cada transacción y el ícono de cuenta de la navbar. Solo cambia el tamaño y el color de fondo mediante modificadores.
+@use "../abstracts/variables" as v;
+@use "../abstracts/placeholders";
+
+.mm-avatar {
+  @extend %circle;
+  flex-shrink: 0;
+  font-weight: v.$fw-bold;
+
+  &--sm {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+  &--md {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+  &--lg {
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+  }
+
+  &--brand {
+    background: v.$color-brand-100;
+    color: v.$color-brand-600;
+  }
+
+  &--gradient {
+    background: v.$gradient-brand;
+    color: v.$color-white;
+  }
+
+  &--income {
+    background: rgba(v.$color-success, 0.14);
+    color: v.$color-success;
+  }
+  &--expense {
+    background: rgba(v.$color-danger, 0.14);
+    color: v.$color-danger;
+  }
+}

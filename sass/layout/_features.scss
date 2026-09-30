@@ -1,0 +1,19 @@
+// LAYOUT / FEATURES
+// Solo define la grilla; las tarjetas son .mm-card (componente reutilizado).
+@use "../abstracts/variables" as v;
+
+.mm-features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: v.$space-5;
+}
+
+.mm-feature {
+  &__title {
+    margin: v.$space-4 0 v.$space-2;
+  }
+  &__text {
+    color: v.$color-text-muted;
+    margin: 0;
+  }
+}

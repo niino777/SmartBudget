@@ -1,0 +1,33 @@
+// COMPONENTS / FORMS
+// Bloque BEM: .mm-field — usado dentro de los dos modales.
+@use "../abstracts/variables" as v;
+
+.mm-field {
+  margin-bottom: v.$space-4;
+
+  &__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: v.$fw-bold;
+    text-transform: uppercase;
+    color: v.$color-text-muted;
+    margin-bottom: v.$space-2;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    border: 1.5px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    padding: 0.7rem 1rem;
+    font-family: v.$font-primary;
+    background: v.$color-surface-alt;
+
+    &:focus {
+      outline: none;
+      border-color: v.$color-brand-400;
+      box-shadow: 0 0 0 3px rgba(v.$color-brand-300, 0.25);
+      background: v.$color-white;
+    }
+  }
+}

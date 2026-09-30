@@ -1,0 +1,36 @@
+// LAYOUT / TESTIMONIALS
+// Solo define la grilla; las tarjetas son .mm-card (componente reutilizado).
+@use "../abstracts/variables" as v;
+@use "../abstracts/placeholders";
+
+.mm-testimonials {
+  background: v.$color-brand-100;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: v.$space-5;
+  }
+}
+
+.mm-testimonial {
+  &__quote {
+    font-style: italic;
+    margin: 0 0 v.$space-4;
+  }
+
+  &__author {
+    @extend %row;
+    gap: v.$space-3;
+  }
+
+  &__name {
+    font-weight: v.$fw-bold;
+    color: v.$color-brand-600;
+    display: block;
+  }
+  &__role {
+    font-size: 0.82rem;
+    color: v.$color-text-muted;
+  }
+}

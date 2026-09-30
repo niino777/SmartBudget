@@ -1,0 +1,27 @@
+// BASE / RESET
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // modelo de cajas explícito en todo el documento
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul[class] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
