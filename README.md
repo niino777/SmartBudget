@@ -16,7 +16,7 @@ semántico, SASS bajo arquitectura 7-1 y Bootstrap 4.
 - **Prototipo de diseño (Figma):** https://www.figma.com/proto/55G2URWVL3zdIhVdNn97pz/MenteMoneda-%E2%80%93-Smart-budget?node-id=1-13&t=BtoDdWwkWz1uV9DS-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3093%3A4
 - **Repositorio:** https://github.com/niino777/SmartBudget.git
 
-- **Sitio en vivo:** 
+- **Sitio en vivo:** https://niino777.github.io/SmartBudget/
 
 
 ## Tecnologías
